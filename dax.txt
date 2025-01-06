@@ -16,3 +16,16 @@ FilteredpriceColumn is the new column name
 
     You can replace the Inlcude and Exclude values with yes or no etc.
 
+Creating a calculated measure
+CountOfFilteredProducts = COUNTROWS(
+    FILTER(
+        Products, Products[Discontinued] = TRUE()
+        && Products[UnitPrice] < 20
+    )
+)
+
+The FILTER method filters the Products table and selects only rows where:
+Products[Discontinued] is TRUE and Products[UnitPrice] < 20.
+COUNTROWS then counts the number of rows where these conditions are true.
+Note: the fiter function takes the Products table as the first arg
+This tells the DAX to consider all rows in the Products table.
