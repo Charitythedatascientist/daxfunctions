@@ -1,0 +1,18 @@
+creating a clculated column:
+FilteredpriceColumn = 
+    IF(
+        Products[Discontinued] = TRUE() 
+    && 
+        Products[UnitPrice] < 20, 
+        "Include","Exclude")
+
+
+FilteredpriceColumn is the new column name
+    Products is the table under consideration with columns:
+        Discontinued and UnitPrice
+    && is the AND 
+    Include is assigned to the rows that meet the conditions. 
+    Exclude is assigned to the rows that do not meet the conditions.
+
+    You can replace the Inlcude and Exclude values with yes or no etc.
+
